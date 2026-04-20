@@ -242,6 +242,8 @@ test.describe('DuplicateListingJourneyTest', () => {
     await page.fill('[data-testid="title-input"]', 'Lost Blue Wallet near Park');
     await page.selectOption('[data-testid="category-select"]', 'Documents');
     await page.fill('[data-testid="location-input"]', 'Denver, CO');
+    await page.fill('[data-testid="start-time"]', '2026-06-01T09:00');
+    await page.fill('[data-testid="end-time"]', '2026-07-01T09:00');
     await page.click('text=Save');
     await page.waitForURL(
       url => url.toString().includes('/listings/') && !url.toString().includes('/new')
@@ -250,6 +252,8 @@ test.describe('DuplicateListingJourneyTest', () => {
     await page.fill('[data-testid="title-input"]', 'Lost Blue Wallet near the Park');
     await page.selectOption('[data-testid="category-select"]', 'Documents');
     await page.fill('[data-testid="location-input"]', 'Denver, CO');
+    await page.fill('[data-testid="start-time"]', '2026-06-01T09:00');
+    await page.fill('[data-testid="end-time"]', '2026-07-01T09:00');
     await page.click('text=Save');
     await page.waitForURL(
       url => url.toString().includes('/listings/') && !url.toString().includes('/new')
@@ -265,6 +269,8 @@ test.describe('DuplicateListingJourneyTest', () => {
     await page.fill('[data-testid="title-input"]', `E2E Listing ${Date.now()}`);
     await page.selectOption('[data-testid="category-select"]', 'Electronics');
     await page.fill('[data-testid="location-input"]', 'Austin, TX');
+    await page.fill('[data-testid="start-time"]', '2026-06-01T09:00');
+    await page.fill('[data-testid="end-time"]', '2026-07-01T09:00');
     await page.click('text=Save');
     await page.waitForURL(
       url => url.toString().includes('/listings/') && !url.toString().includes('/new')
