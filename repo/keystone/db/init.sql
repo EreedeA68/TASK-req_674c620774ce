@@ -792,7 +792,7 @@ VALUES
         'candidates',
         'c0000000-0000-0000-0000-000000000002',
         '{"status":"DRAFT"}',
-        '{"status":"SUBMITTED","submitted_at":"' || (NOW() - INTERVAL '10 days')::TEXT || '"}',
+        ('{"status":"SUBMITTED","submitted_at":"' || (NOW() - INTERVAL '10 days')::TEXT || '"}')::jsonb,
         'chrome-win-001',
         '192.168.1.105',
         NOW() - INTERVAL '10 days'
@@ -804,7 +804,7 @@ VALUES
         'candidates',
         'c0000000-0000-0000-0000-000000000003',
         '{"status":"SUBMITTED"}',
-        '{"status":"APPROVED","reviewer_id":"00000000-0000-0000-0000-000000000003","reviewed_at":"' || (NOW() - INTERVAL '30 days')::TEXT || '"}',
+        ('{"status":"APPROVED","reviewer_id":"00000000-0000-0000-0000-000000000003","reviewed_at":"' || (NOW() - INTERVAL '30 days')::TEXT || '"}')::jsonb,
         'firefox-mac-007',
         '192.168.1.210',
         NOW() - INTERVAL '30 days'
@@ -816,7 +816,7 @@ VALUES
         'candidates',
         'c0000000-0000-0000-0000-000000000004',
         '{"status":"SUBMITTED"}',
-        '{"status":"REJECTED","reviewer_id":"00000000-0000-0000-0000-000000000003","reviewed_at":"' || (NOW() - INTERVAL '15 days')::TEXT || '"}',
+        ('{"status":"REJECTED","reviewer_id":"00000000-0000-0000-0000-000000000003","reviewed_at":"' || (NOW() - INTERVAL '15 days')::TEXT || '"}')::jsonb,
         'firefox-mac-007',
         '192.168.1.210',
         NOW() - INTERVAL '15 days'
