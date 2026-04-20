@@ -12,14 +12,15 @@ export default function AuditLogPage() {
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(false);
 
-  if (!['ADMIN','AUDITOR'].includes(user?.role)) return <Navigate to="/unauthorized" replace />;
-
   useEffect(() => {
+    if (!['ADMIN','AUDITOR'].includes(user?.role)) return;
     setLoading(true);
     api.get('/audit-logs', { params: { page, limit: 50 } })
       .then(r => { setData(r.data.data?.items || []); setTotal(r.data.data?.total || 0); })
       .finally(() => setLoading(false));
-  }, [page]);
+  }, [page, user?.role]);
+
+  if (!['ADMIN','AUDITOR'].includes(user?.role)) return <Navigate to="/unauthorized" replace />;
 
   const columns = [
     { key: 'actorId', label: 'Actor', render: v => <span className="font-mono text-xs">{v?.slice(0,8)}...</span> },
