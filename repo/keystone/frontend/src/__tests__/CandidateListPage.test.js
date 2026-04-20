@@ -1,15 +1,15 @@
 import React from 'react';
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
-import { AuthContext } from '../../frontend/src/context/AuthContext';
-import CandidateListPage from '../../frontend/src/pages/candidates/CandidateListPage';
+import { AuthContext } from '../context/AuthContext';
+import CandidateListPage from '../pages/candidates/CandidateListPage';
 
-jest.mock('../../frontend/src/services/api', () => ({
+jest.mock('../services/api', () => ({
   get: jest.fn(),
   defaults: { headers: { common: {} } }
 }));
 
-const api = require('../../frontend/src/services/api');
+const api = require('../services/api');
 
 const mockCandidates = [
   { id: 'uuid-1', status: 'DRAFT', completenessStatus: 'incomplete', createdAt: '2024-01-01T10:00:00Z', submittedAt: null },

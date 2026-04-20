@@ -1,15 +1,21 @@
 import React from 'react';
 import { render, screen, waitFor } from '@testing-library/react';
 import { MemoryRouter, Routes, Route } from 'react-router-dom';
-import { AuthContext } from '../../frontend/src/context/AuthContext';
-import AuditLogPage from '../../frontend/src/pages/reports/AuditLogPage';
+import { AuthContext } from '../context/AuthContext';
+import AuditLogPage from '../pages/reports/AuditLogPage';
 
-jest.mock('../../frontend/src/services/api', () => ({
-  get: jest.fn().mockResolvedValue({ data: { data: { items: [
-    { id: '1', actorId: 'actor-1', action: 'LOGIN', resourceType: 'user', resourceId: null, ipAddress: '127.0.0.1', createdAt: '2024-01-01T10:00:00Z' }
-  ], total: 1 } } }),
+jest.mock('../services/api', () => ({
+  get: jest.fn(),
   defaults: { headers: { common: {} } }
 }));
+
+const api = require('../services/api');
+
+beforeEach(() => {
+  api.get.mockResolvedValue({ data: { data: { items: [
+    { id: '1', actorId: 'actor-1', action: 'LOGIN', resourceType: 'user', resourceId: null, ipAddress: '127.0.0.1', createdAt: '2024-01-01T10:00:00Z' }
+  ], total: 1 } } });
+});
 
 const wrap = (role) => render(
   <AuthContext.Provider value={{ user: { role, username: 'test' } }}>

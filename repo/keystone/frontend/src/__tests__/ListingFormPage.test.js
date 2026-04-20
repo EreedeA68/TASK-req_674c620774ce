@@ -1,9 +1,9 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
-import { MemoryRouter, Route, Routes } from 'react-router-dom';
-import ListingFormPage from '../../frontend/src/pages/lostfound/ListingFormPage';
+import { MemoryRouter } from 'react-router-dom';
+import ListingFormPage from '../pages/lostfound/ListingFormPage';
 
-jest.mock('../../frontend/src/services/api', () => ({ get: jest.fn(), post: jest.fn(), defaults: { headers: { common: {} } } }));
+jest.mock('../services/api', () => ({ get: jest.fn(), post: jest.fn(), defaults: { headers: { common: {} } } }));
 
 describe('ListingFormPage', () => {
   test('category dropdown renders all options', () => {
@@ -17,7 +17,7 @@ describe('ListingFormPage', () => {
     render(<MemoryRouter><ListingFormPage /></MemoryRouter>);
     fireEvent.change(screen.getByTestId('title-input'), { target: { value: 'Lost item' } });
     fireEvent.change(screen.getByTestId('category-select'), { target: { value: 'Electronics' } });
-    fireEvent.change(screen.getByTestId('location-input'), { target: { value: 'A' } }); // too short
+    fireEvent.change(screen.getByTestId('location-input'), { target: { value: 'A' } });
     fireEvent.submit(screen.getByTestId('title-input').closest('form'));
     expect(screen.getByTestId('location-error')).toBeInTheDocument();
   });
@@ -28,7 +28,7 @@ describe('ListingFormPage', () => {
     fireEvent.change(screen.getByTestId('category-select'), { target: { value: 'Keys' } });
     fireEvent.change(screen.getByTestId('location-input'), { target: { value: 'Chicago, IL' } });
     fireEvent.change(screen.getByTestId('start-time'), { target: { value: '2024-06-15T14:00' } });
-    fireEvent.change(screen.getByTestId('end-time'), { target: { value: '2024-06-15T12:00' } }); // before start
+    fireEvent.change(screen.getByTestId('end-time'), { target: { value: '2024-06-15T12:00' } });
     fireEvent.submit(screen.getByTestId('title-input').closest('form'));
     expect(screen.getByTestId('time-error')).toBeInTheDocument();
   });

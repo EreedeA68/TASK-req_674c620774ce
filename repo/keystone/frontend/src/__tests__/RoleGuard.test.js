@@ -1,8 +1,8 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { MemoryRouter, Routes, Route } from 'react-router-dom';
-import { AuthContext } from '../../frontend/src/context/AuthContext';
-import RoleGuard from '../../frontend/src/components/RoleGuard';
+import { AuthContext } from '../context/AuthContext';
+import RoleGuard from '../components/RoleGuard';
 
 const makeCtx = (role) => ({ user: role ? { role, username: 'test' } : null });
 

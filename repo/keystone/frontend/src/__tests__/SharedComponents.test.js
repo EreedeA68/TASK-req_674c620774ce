@@ -1,10 +1,10 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
-import MaskedField from '../../frontend/src/components/MaskedField';
-import TimestampDisplay from '../../frontend/src/components/TimestampDisplay';
-import StatusBadge from '../../frontend/src/components/StatusBadge';
-import FileUpload from '../../frontend/src/components/FileUpload';
-import ConfirmDialog from '../../frontend/src/components/ConfirmDialog';
+import MaskedField from '../components/MaskedField';
+import TimestampDisplay from '../components/TimestampDisplay';
+import StatusBadge from '../components/StatusBadge';
+import FileUpload from '../components/FileUpload';
+import ConfirmDialog from '../components/ConfirmDialog';
 
 describe('MaskedField', () => {
   test('renders last 4 characters only', () => {
