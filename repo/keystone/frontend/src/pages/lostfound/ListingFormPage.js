@@ -44,8 +44,13 @@ export default function ListingFormPage() {
     if (!validate()) return;
     setLoading(true);
     try {
-      if (isEdit) { await api.put(`/listings/${id}`, form); navigate(`/listings/${id}`); }
-      else { const r = await api.post('/listings', form); navigate(`/listings/${r.data.data.id}`); }
+      const payload = {
+        ...form,
+        timeWindowStart: form.timeWindowStart ? new Date(form.timeWindowStart).toISOString() : null,
+        timeWindowEnd:   form.timeWindowEnd   ? new Date(form.timeWindowEnd).toISOString()   : null,
+      };
+      if (isEdit) { await api.put(`/listings/${id}`, payload); navigate(`/listings/${id}`); }
+      else { const r = await api.post('/listings', payload); navigate(`/listings/${r.data.data.id}`); }
     } catch (err) {
       setErrors({ submit: err.response?.data?.errorMessage || 'Save failed' });
     } finally { setLoading(false); }

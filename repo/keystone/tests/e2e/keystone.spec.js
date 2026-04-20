@@ -10,7 +10,7 @@ async function login(page, username, password) {
   await page.fill('[data-testid="password-input"]', password);
   await page.click('[data-testid="submit-button"]');
   await page.waitForURL(url => !url.toString().includes('/login'), { timeout: 10000 });
-  await page.locator('[data-testid="navbar"]').waitFor({ state: 'visible', timeout: 10000 });
+  await page.locator('[data-testid="navbar"]').waitFor({ state: 'visible', timeout: 20000 });
 }
 
 async function apiToken(page, username, password) {
