@@ -618,120 +618,120 @@ VALUES
 INSERT INTO part_versions (id, part_id, version_number, fitment, oem_mappings, attributes, changed_by, change_summary, created_at)
 VALUES
     -- Part 1: KS-AX-001 (Front Axle Shaft Assembly)
-    ('v0000000-0000-0001-0001-000000000001', 'p0000000-0000-0000-0000-000000000001', 1,
+    ('b0000000-0000-0001-0001-000000000001', 'p0000000-0000-0000-0000-000000000001', 1,
      '{"makes":["Ford"],"models":["F-150"],"years":[2015,2016,2017,2018],"position":"Front Left"}',
      '{"ford_oem":"BL3Z-3B436-D","aftermarket":["Dorman 630-508"]}',
      '{"material":"4140 Steel","length_mm":572,"spline_count":28,"warranty_months":12}',
      '00000000-0000-0000-0000-000000000004', 'Initial release', NOW() - INTERVAL '200 days'),
-    ('v0000000-0000-0001-0001-000000000002', 'p0000000-0000-0000-0000-000000000001', 2,
+    ('b0000000-0000-0001-0001-000000000002', 'p0000000-0000-0000-0000-000000000001', 2,
      '{"makes":["Ford"],"models":["F-150","F-250"],"years":[2015,2016,2017,2018,2019],"position":"Front Left"}',
      '{"ford_oem":"BL3Z-3B436-D","ford_oem_v2":"FL3Z-3B436-A","aftermarket":["Dorman 630-508","GSP NCV12052"]}',
      '{"material":"4140 Steel","length_mm":572,"spline_count":28,"warranty_months":24,"notes":"Extended compatibility to F-250"}',
      '00000000-0000-0000-0000-000000000004', 'Added F-250 compatibility and extended warranty', NOW() - INTERVAL '30 days'),
 
     -- Part 2: KS-AL-001 (Alternator 150A)
-    ('v0000000-0000-0001-0002-000000000001', 'p0000000-0000-0000-0000-000000000002', 1,
+    ('b0000000-0000-0001-0002-000000000001', 'p0000000-0000-0000-0000-000000000002', 1,
      '{"makes":["Honda"],"models":["Civic"],"years":[2016,2017,2018],"engine":"1.5T"}',
      '{"honda_oem":"31100-59B-014","aftermarket":["Remy 94793","DB Electrical AND0544"]}',
      '{"output_amps":150,"voltage":12,"rotation":"CW","warranty_months":18}',
      '00000000-0000-0000-0000-000000000004', 'Initial release', NOW() - INTERVAL '190 days'),
-    ('v0000000-0000-0001-0002-000000000002', 'p0000000-0000-0000-0000-000000000002', 2,
+    ('b0000000-0000-0001-0002-000000000002', 'p0000000-0000-0000-0000-000000000002', 2,
      '{"makes":["Honda"],"models":["Civic","Accord"],"years":[2016,2017,2018,2019],"engine":"1.5T"}',
      '{"honda_oem":"31100-59B-014","honda_oem_v2":"31100-5PA-A01","aftermarket":["Remy 94793","DB Electrical AND0544","WAI 11394N"]}',
      '{"output_amps":150,"voltage":12,"rotation":"CW","warranty_months":24,"notes":"Added Accord 1.5T fitment"}',
      '00000000-0000-0000-0000-000000000004', 'Extended fitment to Accord 1.5T', NOW() - INTERVAL '20 days'),
 
     -- Part 3: KS-BC-001 (Brake Caliper Rear)
-    ('v0000000-0000-0001-0003-000000000001', 'p0000000-0000-0000-0000-000000000003', 1,
+    ('b0000000-0000-0001-0003-000000000001', 'p0000000-0000-0000-0000-000000000003', 1,
      '{"makes":["Toyota"],"models":["Camry"],"years":[2018,2019,2020],"position":"Rear Right"}',
      '{"toyota_oem":"47750-06190","aftermarket":["Cardone 19-3595","PowerStop S4946"]}',
      '{"piston_count":1,"piston_diameter_mm":38,"material":"Cast Iron","warranty_months":12}',
      '00000000-0000-0000-0000-000000000004', 'Initial release', NOW() - INTERVAL '180 days'),
-    ('v0000000-0000-0001-0003-000000000002', 'p0000000-0000-0000-0000-000000000003', 2,
+    ('b0000000-0000-0001-0003-000000000002', 'p0000000-0000-0000-0000-000000000003', 2,
      '{"makes":["Toyota"],"models":["Camry","Avalon"],"years":[2018,2019,2020,2021],"position":"Rear Right"}',
      '{"toyota_oem":"47750-06190","aftermarket":["Cardone 19-3595","PowerStop S4946","Centric 141.44592"]}',
      '{"piston_count":1,"piston_diameter_mm":38,"material":"Cast Iron","warranty_months":24,"coating":"E-coat"}',
      '00000000-0000-0000-0000-000000000004', 'Added Avalon fitment and E-coat finish', NOW() - INTERVAL '15 days'),
 
     -- Part 4: KS-EB-001 (Engine Block V8 5.3L)
-    ('v0000000-0000-0001-0004-000000000001', 'p0000000-0000-0000-0000-000000000004', 1,
+    ('b0000000-0000-0001-0004-000000000001', 'p0000000-0000-0000-0000-000000000004', 1,
      '{"makes":["Chevrolet","GMC"],"models":["Silverado 1500","Sierra 1500"],"years":[2014,2015,2016],"engine":"5.3L V8 L83"}',
      '{"gm_oem":"12681429","aftermarket":["Dart 31364265"]}',
      '{"displacement_cc":5328,"bore_mm":96.52,"stroke_mm":92.0,"material":"Cast Iron","warranty_months":6}',
      '00000000-0000-0000-0000-000000000004', 'Initial release', NOW() - INTERVAL '170 days'),
-    ('v0000000-0000-0001-0004-000000000002', 'p0000000-0000-0000-0000-000000000004', 2,
+    ('b0000000-0000-0001-0004-000000000002', 'p0000000-0000-0000-0000-000000000004', 2,
      '{"makes":["Chevrolet","GMC","Cadillac"],"models":["Silverado 1500","Sierra 1500","Escalade"],"years":[2014,2015,2016,2017],"engine":"5.3L V8 L83"}',
      '{"gm_oem":"12681429","gm_oem_v2":"12690717","aftermarket":["Dart 31364265"]}',
      '{"displacement_cc":5328,"bore_mm":96.52,"stroke_mm":92.0,"material":"Cast Iron","warranty_months":6,"notes":"Added Escalade and 2017MY"}',
      '00000000-0000-0000-0000-000000000004', 'Expanded fitment to Cadillac Escalade', NOW() - INTERVAL '10 days'),
 
     -- Part 5: KS-SA-001 (Strut Assembly Front)
-    ('v0000000-0000-0001-0005-000000000001', 'p0000000-0000-0000-0000-000000000005', 1,
+    ('b0000000-0000-0001-0005-000000000001', 'p0000000-0000-0000-0000-000000000005', 1,
      '{"makes":["Honda"],"models":["Accord"],"years":[2016,2017,2018],"position":"Front Left"}',
      '{"honda_oem":"51601-TVA-A04","aftermarket":["KYB SR4518","Monroe 172584"]}',
      '{"spring_rate_nm":28000,"travel_mm":110,"warranty_months":12}',
      '00000000-0000-0000-0000-000000000004', 'Initial release', NOW() - INTERVAL '160 days'),
-    ('v0000000-0000-0001-0005-000000000002', 'p0000000-0000-0000-0000-000000000005', 2,
+    ('b0000000-0000-0001-0005-000000000002', 'p0000000-0000-0000-0000-000000000005', 2,
      '{"makes":["Honda"],"models":["Accord","Acura TLX"],"years":[2016,2017,2018,2019],"position":"Front Left"}',
      '{"honda_oem":"51601-TVA-A04","aftermarket":["KYB SR4518","Monroe 172584","Gabriel G57131"]}',
      '{"spring_rate_nm":28000,"travel_mm":110,"warranty_months":24,"notes":"Added Acura TLX cross-reference"}',
      '00000000-0000-0000-0000-000000000004', 'Added Acura TLX compatibility', NOW() - INTERVAL '25 days'),
 
     -- Part 6: KS-RA-001 (Radiator Assembly)
-    ('v0000000-0000-0001-0006-000000000001', 'p0000000-0000-0000-0000-000000000006', 1,
+    ('b0000000-0000-0001-0006-000000000001', 'p0000000-0000-0000-0000-000000000006', 1,
      '{"makes":["Jeep"],"models":["Grand Cherokee"],"years":[2014,2015,2016],"engine":"3.6L V6"}',
      '{"mopar_oem":"68110299AA","aftermarket":["Spectra Premium CU13384","TYC 13384"]}',
      '{"core_width_mm":680,"core_height_mm":400,"row_count":2,"material":"Aluminum","warranty_months":12}',
      '00000000-0000-0000-0000-000000000004', 'Initial release', NOW() - INTERVAL '150 days'),
-    ('v0000000-0000-0001-0006-000000000002', 'p0000000-0000-0000-0000-000000000006', 2,
+    ('b0000000-0000-0001-0006-000000000002', 'p0000000-0000-0000-0000-000000000006', 2,
      '{"makes":["Jeep","Dodge"],"models":["Grand Cherokee","Durango"],"years":[2014,2015,2016,2017],"engine":"3.6L V6"}',
      '{"mopar_oem":"68110299AA","mopar_oem_v2":"68303655AA","aftermarket":["Spectra Premium CU13384","TYC 13384","CSF 3561"]}',
      '{"core_width_mm":680,"core_height_mm":400,"row_count":2,"material":"Aluminum","warranty_months":18,"notes":"Added Dodge Durango fitment"}',
      '00000000-0000-0000-0000-000000000004', 'Added Durango compatibility and improved warranty', NOW() - INTERVAL '5 days'),
 
     -- Part 7: KS-TR-001 (Automatic Transmission 6-Speed)
-    ('v0000000-0000-0001-0007-000000000001', 'p0000000-0000-0000-0000-000000000007', 1,
+    ('b0000000-0000-0001-0007-000000000001', 'p0000000-0000-0000-0000-000000000007', 1,
      '{"makes":["Ram"],"models":["1500"],"years":[2013,2014,2015],"engine":"5.7L Hemi"}',
      '{"mopar_oem":"5170903AF","aftermarket":["A-1 Cardone 77-4559"]}',
      '{"gear_count":6,"torque_rating_nm":700,"fluid_type":"ATF+4","warranty_months":6}',
      '00000000-0000-0000-0000-000000000004', 'Initial release', NOW() - INTERVAL '140 days'),
-    ('v0000000-0000-0001-0007-000000000002', 'p0000000-0000-0000-0000-000000000007', 2,
+    ('b0000000-0000-0001-0007-000000000002', 'p0000000-0000-0000-0000-000000000007', 2,
      '{"makes":["Ram","Dodge"],"models":["1500","Challenger"],"years":[2013,2014,2015,2016],"engine":"5.7L Hemi"}',
      '{"mopar_oem":"5170903AF","mopar_oem_v2":"68271639AA","aftermarket":["A-1 Cardone 77-4559"]}',
      '{"gear_count":6,"torque_rating_nm":700,"fluid_type":"ATF+4","warranty_months":6,"notes":"Added Challenger Hemi fitment"}',
      '00000000-0000-0000-0000-000000000004', 'Extended fitment to Dodge Challenger Hemi', NOW() - INTERVAL '45 days'),
 
     -- Part 8: KS-PS-001 (Power Steering Pump) - DEPRECATED
-    ('v0000000-0000-0001-0008-000000000001', 'p0000000-0000-0000-0000-000000000008', 1,
+    ('b0000000-0000-0001-0008-000000000001', 'p0000000-0000-0000-0000-000000000008', 1,
      '{"makes":["Chevrolet"],"models":["Tahoe","Suburban"],"years":[2015,2016,2017,2018,2019]}',
      '{"gm_oem":"84145526","aftermarket":["Cardone 20-5224","ACDelco 84145526"]}',
      '{"flow_rate_lpm":8.5,"pressure_bar":130,"warranty_months":12}',
      '00000000-0000-0000-0000-000000000004', 'Initial release', NOW() - INTERVAL '300 days'),
-    ('v0000000-0000-0001-0008-000000000002', 'p0000000-0000-0000-0000-000000000008', 2,
+    ('b0000000-0000-0001-0008-000000000002', 'p0000000-0000-0000-0000-000000000008', 2,
      '{"makes":["Chevrolet","GMC"],"models":["Tahoe","Suburban","Yukon","Yukon XL"],"years":[2015,2016,2017,2018,2019]}',
      '{"gm_oem":"84145526","aftermarket":["Cardone 20-5224","ACDelco 84145526","Maval 96637M"]}',
      '{"flow_rate_lpm":8.5,"pressure_bar":130,"warranty_months":12,"notes":"Added GMC Yukon family; deprecated due to EPS conversion"}',
      '00000000-0000-0000-0000-000000000004', 'Added GMC Yukon; part marked deprecated (EPS supersedes)', NOW() - INTERVAL '60 days'),
 
     -- Part 9: KS-FI-001 (Fuel Injector 60lb/hr)
-    ('v0000000-0000-0001-0009-000000000001', 'p0000000-0000-0000-0000-000000000009', 1,
+    ('b0000000-0000-0001-0009-000000000001', 'p0000000-0000-0000-0000-000000000009', 1,
      '{"makes":["Ford"],"models":["Mustang"],"years":[2015,2016,2017],"engine":"5.0L V8 Coyote"}',
      '{"ford_oem":"BR3E-9F593-AA","aftermarket":["Deatschwerks 18U-00-0060-8","Injector Dynamics ID1050x"]}',
      '{"flow_rate_lbhr":60,"impedance_ohm":12,"connector":"EV6 USCAR","warranty_months":12}',
      '00000000-0000-0000-0000-000000000004', 'Initial release', NOW() - INTERVAL '120 days'),
-    ('v0000000-0000-0001-0009-000000000002', 'p0000000-0000-0000-0000-000000000009', 2,
+    ('b0000000-0000-0001-0009-000000000002', 'p0000000-0000-0000-0000-000000000009', 2,
      '{"makes":["Ford"],"models":["Mustang","F-150"],"years":[2015,2016,2017,2018,2019],"engine":"5.0L V8 Coyote"}',
      '{"ford_oem":"BR3E-9F593-AA","aftermarket":["Deatschwerks 18U-00-0060-8","Injector Dynamics ID1050x","Siemens Deka FI114992"]}',
      '{"flow_rate_lbhr":60,"impedance_ohm":12,"connector":"EV6 USCAR","warranty_months":24,"notes":"Added F-150 5.0L fitment; extended warranty"}',
      '00000000-0000-0000-0000-000000000004', 'Added F-150 5.0L fitment and extended warranty', NOW() - INTERVAL '7 days'),
 
     -- Part 10: KS-CC-001 (Catalytic Converter Rear)
-    ('v0000000-0000-0001-0010-000000000001', 'p0000000-0000-0000-0000-000000000010', 1,
+    ('b0000000-0000-0001-0010-000000000001', 'p0000000-0000-0000-0000-000000000010', 1,
      '{"makes":["Toyota"],"models":["Prius","Prius Prime"],"years":[2016,2017,2018,2019,2020]}',
      '{"toyota_oem":"25051-37250","aftermarket":["Eastern 30740","Davico 19378"]}',
      '{"substrate":"Palladium-Rhodium","cell_count":400,"inlet_diameter_mm":52,"warranty_months":60,"notes":"Federal emissions compliant"}',
      '00000000-0000-0000-0000-000000000004', 'Initial release', NOW() - INTERVAL '110 days'),
-    ('v0000000-0000-0001-0010-000000000002', 'p0000000-0000-0000-0000-000000000010', 2,
+    ('b0000000-0000-0001-0010-000000000002', 'p0000000-0000-0000-0000-000000000010', 2,
      '{"makes":["Toyota"],"models":["Prius","Prius Prime","Prius AWD-e"],"years":[2016,2017,2018,2019,2020,2021]}',
      '{"toyota_oem":"25051-37250","toyota_oem_v2":"25051-47110","aftermarket":["Eastern 30740","Davico 19378","MagnaFlow 5481609"]}',
      '{"substrate":"Palladium-Rhodium","cell_count":400,"inlet_diameter_mm":52,"warranty_months":60,"notes":"Added AWD-e variant and 2021MY; CARB compliant"}',
@@ -740,16 +740,16 @@ VALUES
 -- -------------------------
 -- Update parts.current_version_id to latest version
 -- -------------------------
-UPDATE parts SET current_version_id = 'v0000000-0000-0001-0001-000000000002' WHERE id = 'p0000000-0000-0000-0000-000000000001';
-UPDATE parts SET current_version_id = 'v0000000-0000-0001-0002-000000000002' WHERE id = 'p0000000-0000-0000-0000-000000000002';
-UPDATE parts SET current_version_id = 'v0000000-0000-0001-0003-000000000002' WHERE id = 'p0000000-0000-0000-0000-000000000003';
-UPDATE parts SET current_version_id = 'v0000000-0000-0001-0004-000000000002' WHERE id = 'p0000000-0000-0000-0000-000000000004';
-UPDATE parts SET current_version_id = 'v0000000-0000-0001-0005-000000000002' WHERE id = 'p0000000-0000-0000-0000-000000000005';
-UPDATE parts SET current_version_id = 'v0000000-0000-0001-0006-000000000002' WHERE id = 'p0000000-0000-0000-0000-000000000006';
-UPDATE parts SET current_version_id = 'v0000000-0000-0001-0007-000000000002' WHERE id = 'p0000000-0000-0000-0000-000000000007';
-UPDATE parts SET current_version_id = 'v0000000-0000-0001-0008-000000000002' WHERE id = 'p0000000-0000-0000-0000-000000000008';
-UPDATE parts SET current_version_id = 'v0000000-0000-0001-0009-000000000002' WHERE id = 'p0000000-0000-0000-0000-000000000009';
-UPDATE parts SET current_version_id = 'v0000000-0000-0001-0010-000000000002' WHERE id = 'p0000000-0000-0000-0000-000000000010';
+UPDATE parts SET current_version_id = 'b0000000-0000-0001-0001-000000000002' WHERE id = 'p0000000-0000-0000-0000-000000000001';
+UPDATE parts SET current_version_id = 'b0000000-0000-0001-0002-000000000002' WHERE id = 'p0000000-0000-0000-0000-000000000002';
+UPDATE parts SET current_version_id = 'b0000000-0000-0001-0003-000000000002' WHERE id = 'p0000000-0000-0000-0000-000000000003';
+UPDATE parts SET current_version_id = 'b0000000-0000-0001-0004-000000000002' WHERE id = 'p0000000-0000-0000-0000-000000000004';
+UPDATE parts SET current_version_id = 'b0000000-0000-0001-0005-000000000002' WHERE id = 'p0000000-0000-0000-0000-000000000005';
+UPDATE parts SET current_version_id = 'b0000000-0000-0001-0006-000000000002' WHERE id = 'p0000000-0000-0000-0000-000000000006';
+UPDATE parts SET current_version_id = 'b0000000-0000-0001-0007-000000000002' WHERE id = 'p0000000-0000-0000-0000-000000000007';
+UPDATE parts SET current_version_id = 'b0000000-0000-0001-0008-000000000002' WHERE id = 'p0000000-0000-0000-0000-000000000008';
+UPDATE parts SET current_version_id = 'b0000000-0000-0001-0009-000000000002' WHERE id = 'p0000000-0000-0000-0000-000000000009';
+UPDATE parts SET current_version_id = 'b0000000-0000-0001-0010-000000000002' WHERE id = 'p0000000-0000-0000-0000-000000000010';
 
 -- -------------------------
 -- Part Fitment records
@@ -850,7 +850,7 @@ VALUES
         '00000000-0000-0000-0000-000000000004',
         'PART_VERSION_ADDED',
         'part_versions',
-        'v0000000-0000-0001-0001-000000000002',
+        'b0000000-0000-0001-0001-000000000002',
         '{"version_number":1,"fitment":{"makes":["Ford"],"models":["F-150"]}}',
         '{"version_number":2,"fitment":{"makes":["Ford"],"models":["F-150","F-250"]}}',
         'edge-win-003',
