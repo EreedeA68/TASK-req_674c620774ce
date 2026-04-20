@@ -10,6 +10,7 @@ async function login(page, username, password) {
   await page.fill('[data-testid="password-input"]', password);
   await page.click('[data-testid="submit-button"]');
   await page.waitForURL(url => !url.toString().includes('/login'), { timeout: 10000 });
+  await page.waitForLoadState('networkidle');
 }
 
 test.describe('AdminJourneyTest', () => {
@@ -17,9 +18,9 @@ test.describe('AdminJourneyTest', () => {
     await login(page, 'admin', 'Admin@Keystone1!');
     // Verify admin menu items visible
     await expect(page.locator('[data-testid="navbar"]')).toBeVisible();
-    await expect(page.locator('text=Admin')).toBeVisible();
+    await expect(page.getByRole('link', { name: 'Admin' })).toBeVisible();
     // Navigate to admin page
-    await page.click('text=Admin');
+    await page.getByRole('link', { name: 'Admin' }).click();
     await page.waitForURL('**/admin');
     // Create new user
     await page.fill('[data-testid="new-username"]', 'newintake');
