@@ -1,0 +1,11 @@
+{
+  "name": "keystone-e2e",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "npx playwright test",
+    "test:report": "npx playwright show-report"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.44.0"
+  }
+}

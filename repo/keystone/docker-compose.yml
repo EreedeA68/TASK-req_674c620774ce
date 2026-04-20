@@ -1,0 +1,68 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:15-alpine
+    container_name: keystone-db
+    environment:
+      POSTGRES_DB: ${DB_NAME:-keystone}
+      POSTGRES_USER: ${DB_USER:-keystone}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-keystone_pass}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER:-keystone} -d ${DB_NAME:-keystone}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+    networks:
+      - keystone-net
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: keystone-backend
+    environment:
+      DB_HOST: ${DB_HOST:-db}
+      DB_PORT: ${DB_PORT:-5432}
+      DB_NAME: ${DB_NAME:-keystone}
+      DB_USER: ${DB_USER:-keystone}
+      DB_PASSWORD: ${DB_PASSWORD:-keystone_pass}
+      JWT_SECRET: ${JWT_SECRET:-keystone_jwt_secret_min_32_chars_here}
+      AES_KEY: ${AES_KEY:-keystone_aes_key_32_bytes_here!!}
+      PORT: ${PORT:-8080}
+      TOTP_ISSUER: ${TOTP_ISSUER:-Keystone}
+    ports:
+      - "8080:8080"
+    depends_on:
+      db:
+        condition: service_healthy
+    volumes:
+      - documents_data:/app/documents
+    networks:
+      - keystone-net
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: keystone-frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    networks:
+      - keystone-net
+
+volumes:
+  postgres_data:
+  documents_data:
+
+networks:
+  keystone-net:
+    driver: bridge
