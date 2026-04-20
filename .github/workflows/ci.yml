@@ -180,7 +180,16 @@ jobs:
 
       - name: Start services
         working-directory: ${{ env.KEYSTONE }}
-        run: docker compose up -d db backend frontend
+        run: |
+          docker compose up -d db backend frontend || {
+            echo "=== docker compose ps ==="
+            docker compose ps || true
+            echo "=== db logs ==="
+            docker compose logs db || true
+            echo "=== backend logs ==="
+            docker compose logs backend || true
+            exit 1
+          }
 
       - name: Wait for backend health
         run: |
