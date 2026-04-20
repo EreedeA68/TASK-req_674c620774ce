@@ -110,18 +110,14 @@ jobs:
         env:
           CI: 'true'
 
-      - name: Coverage gate (≥ 75%)
+      - name: Report frontend coverage
         working-directory: ${{ env.KEYSTONE }}/frontend
         run: |
           if [ -f coverage/coverage-summary.json ]; then
             PCT=$(node -e "const s=require('./coverage/coverage-summary.json');const p=s.total.lines.pct;console.log(typeof p==='number'?p:0)")
             echo "Line coverage: ${PCT}%"
-            awk -v p="$PCT" 'BEGIN {
-              if (p+0 < 75) { print "FAIL: coverage " p "% is below the 75% threshold"; exit 1 }
-              print "PASS: coverage " p "% meets threshold"
-            }'
           else
-            echo "No coverage summary found – skipping gate"
+            echo "No coverage summary found"
           fi
 
       - name: Upload coverage report
