@@ -1,6 +1,8 @@
 package auth
 
 import (
+	"crypto/rand"
+	"encoding/hex"
 	"errors"
 	"fmt"
 	"os"
@@ -54,6 +56,12 @@ type Service struct {
 // NewService creates a new auth Service.
 func NewService(repo *Repository, audit AuditLogger) *Service {
 	return &Service{repo: repo, audit: audit}
+}
+
+func generateJTI() string {
+	b := make([]byte, 16)
+	_, _ = rand.Read(b)
+	return hex.EncodeToString(b)
 }
 
 func jwtSecret() []byte {
@@ -130,6 +138,7 @@ func (s *Service) Login(req LoginRequest, deviceID, ip string) (*LoginResponse, 
 		SiteID:         user.SiteID,
 		OrganizationID: user.OrganizationID,
 		RegisteredClaims: jwt.RegisteredClaims{
+			ID:        generateJTI(),
 			ExpiresAt: jwt.NewNumericDate(time.Now().Add(jwtTTL)),
 			IssuedAt:  jwt.NewNumericDate(time.Now()),
 			Subject:   user.ID,
