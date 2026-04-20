@@ -18,8 +18,15 @@ export default function LoginPage() {
     setError(''); setLockoutMsg('');
     setLoading(true);
     try {
-      await login(username, password, mfaRequired ? totpCode : undefined);
-      navigate('/');
+      const userDTO = await login(username, password, mfaRequired ? totpCode : undefined);
+      const roleHome = {
+        ADMIN:             '/candidates',
+        INTAKE_SPECIALIST: '/candidates',
+        REVIEWER:          '/candidates',
+        INVENTORY_CLERK:   '/parts',
+        AUDITOR:           '/audit-logs',
+      };
+      navigate(roleHome[userDTO?.role] || '/candidates');
     } catch (err) {
       const status = err.response?.status;
       const msg = err.response?.data?.errorMessage || 'Login failed';
